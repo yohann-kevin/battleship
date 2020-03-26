@@ -1,4 +1,5 @@
 var toolbox = require("./toolbox.js");
+
 var battleship = {
     nbColumn : 5,
     nbLine : 5,
@@ -8,7 +9,7 @@ var battleship = {
     nbCaseJ2 : 0,
 
     init : function(){
-        this.grid = toolbox.initTab(this.nbLine,this.nbColumn);
+        this.grid = toolbox.initTab(this.nbLine,this.nbColumn,0);
         this.positionBoat(3,1);
         this.nbCaseJ1 += 3;
         this.positionBoat(2,1);
@@ -60,25 +61,25 @@ var battleship = {
         }
     },
 
-    displayGrid : function() {
-        for(var i = 0; i < this.nbLine; i++) {
+    displayGrid : function(){
+        for(var i=0; i < this.nbLine; i++){
             var txt = "";
-            for(var j = 0; j < this.nbColumn; j++) {
+            for(var j=0; j < this.nbColumn; j++){
                 txt += "| ";
-                if(this.grid[i][j] === 0) {
+                if(this.grid[i][j]===0){
                     txt += "_";
-                } else if(this.grid[i][j] === 1) {
+                } else if(this.grid[i][j]===1){
                     txt += "x";
-                } else if(this.grid[i][j] === 2) {
+                } else if(this.grid[i][j]===2){
                     txt += "o";
                 }
-                txt += " |";  
+                txt += " |";
             }
-            console.log(txt);    
+            console.log(txt);
         }
     },
 
-    playCase : function(line,column) {
+    playCase : function(line,column){
 
     }
 }
