@@ -14,7 +14,7 @@ var toolbox = {
      * @param {Number} nbColumn 
      * @param {*} car 
      */
-    initTab : function(nbLine, nbColumn, car = ''){
+    initTabEmpty : function(nbLine, nbColumn, car = ''){
         var tab = [];
         for(var i=0;i < nbLine;i++){
             var line = [];
