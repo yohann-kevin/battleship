@@ -1,9 +1,6 @@
 var iaBattleship = {
     getCase : function() {
         var casePossibility = this.getAllCasePossibility(); 
-        console.log(casePossibility);
-        // var randomCase = Math.floor(Math.random() * casePossibility.length);
-        // return casePossibility[randomCase];
         var box = this.getBestCase(casePossibility);
         return box;
     },

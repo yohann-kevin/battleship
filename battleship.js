@@ -6,16 +6,17 @@ var battleship = {
     nbCaseJ1 : 0,
     nbCaseJ2 : 0,
 
-    init : function(){
-        this.grid = toolbox.initTab(this.nbLine,this.nbColumn,0);
-        this.positionBoat(3,1);
-        this.nbCaseJ1 += 3;
-        this.positionBoat(2,1);
-        this.nbCaseJ1 += 2;
-        this.positionBoat(3,2);
-        this.nbCaseJ2 += 3;
-        this.positionBoat(2,2);
-        this.nbCaseJ2 += 2;
+    init : function(numberBoat){
+        this.nbColumn = numberBoat * 2 + 1;
+        this.nbLine = numberBoat * 2 + 1;
+        this.grid = toolbox.initTabEmpty(this.nbLine,this.nbColumn,0);
+
+        for(var i = 1; i <= numberBoat;i++) {
+            this.positionBoat((i+1),1);
+            this.nbCaseJ1 += i + 1;
+            this.positionBoat((i+1),2);
+            this.nbCaseJ2 += i + 1;
+        }
     },
 
     positionBoat : function(size,player){
