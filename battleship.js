@@ -72,6 +72,8 @@ var battleship = {
                     txt += "x";
                 } else if(this.grid[i][j]===2){
                     txt += "o";
+                } else if(this.grid[i][j]===3){
+                    txt += "z";
                 }
                 txt += " |";
             }
@@ -80,7 +82,10 @@ var battleship = {
     },
 
     playCase : function(line,column){
-
+        if(this.grid[line][column] === 1) this.nbCaseJ1--;
+        if(this.grid[line][column] === 2) this.nbCaseJ2--;
+        this.grid[line][column] = 3;
+        if(this.nbCaseJ1 <= 0 || this.nbCaseJ2 <= 0) return true;
     }
 }
 module.exports = battleship;
