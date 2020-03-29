@@ -74,4 +74,6 @@ function manageEndGame() {
 // permet a l'ia de jouer
 function play(line,column) {
     playCase(line,column);
+    var caseIA = iaBattleship.getCase();
+    playCase(caseIA.line,caseIA.column);
 }
