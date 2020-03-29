@@ -109,6 +109,9 @@ var battleship = {
             this.nbCaseJ2--;
             this.grid[line][column] = 5;
         }
+    },
+
+    verifyEndGame : function() {
         if(this.nbCaseJ1 <= 0 || this.nbCaseJ2 <= 0) return true;
     }
 }
