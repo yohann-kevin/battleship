@@ -72,12 +72,10 @@ var battleship = {
                     content += "<button class='fire' onclick='play("+i+","+j+")'>Fire</button>";
                 }
                 if(this.grid[i][j] === 1) {
-                    content += "<button class='fire' onclick='play("+i+","+j+")'>Fire</button>";
                     content += "<img src='./images/J1.png' class='imgPlayers1'>";
                 }
                 if(this.grid[i][j] === 2) {
                     content += "<button class='fire' onclick='play("+i+","+j+")'>Fire</button>";
-                    content += "<img src='./images/J2.png' class='imgPlayers2'>";
                 }
                 if(this.grid[i][j] === 3) {
                     content += "<img src='./images/croix.png' class='imgLoose'>";
