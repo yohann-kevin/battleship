@@ -1,4 +1,3 @@
-var readline = require("readline-sync");
 var toolbox = {
 
     writeString: function(txt){
@@ -27,4 +26,3 @@ var toolbox = {
         return tab;
     }
 }
-module.exports = toolbox;

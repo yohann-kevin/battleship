@@ -1,5 +1,3 @@
-var toolbox = require("./toolbox.js");
-
 var battleship = {
     nbColumn : 5,
     nbLine : 5,
@@ -62,23 +60,35 @@ var battleship = {
     },
 
     displayGrid : function(){
-        for(var i=0; i < this.nbLine; i++){
-            var txt = "";
-            for(var j=0; j < this.nbColumn; j++){
-                txt += "| ";
-                if(this.grid[i][j]===0){
-                    txt += "_";
-                } else if(this.grid[i][j]===1){
-                    txt += "x";
-                } else if(this.grid[i][j]===2){
-                    txt += "o";
-                } else if(this.grid[i][j]===3){
-                    txt += "z";
+        const gameBattleship = document.querySelector("#battleship");
+        gameBattleship.innerHTML = "";
+
+        var content = "<table id='tabBattleship'>";
+        for(var i = 0; i < this.nbLine;i++) {
+            content += "<tr>";
+            for(var j = 0; j < this.nbColumn; j++) {
+                content += "<td class='caseBattleship'>";
+                if(this.grid[i][j] === 0) {
+                    content += "<button class='fire' onclick=''>Fire</button>";
                 }
-                txt += " |";
+                if(this.grid[i][j] === 1) {
+                    content += "<button class='fire' onclick=''>Fire</button>";
+                    content += "<img src='./images/J1.png' class='imgPlayers1'>";
+                }
+                if(this.grid[i][j] === 2) {
+                    content += "<button class='fire' onclick=''>Fire</button>";
+                    content += "<img src='./images/J2.png' class='imgPlayers2'>";
+                }
+                if(this.grid[i][j] === 3) {
+                    content += "<img src='./images/croix.png' class='imgLoose'>";
+                }
+                content += "</td>";
             }
-            console.log(txt);
+            content += "</tr>";
         }
+      
+        content += "</table>";
+        gameBattleship.innerHTML = content;
     },
 
     playCase : function(line,column){
@@ -88,4 +98,3 @@ var battleship = {
         if(this.nbCaseJ1 <= 0 || this.nbCaseJ2 <= 0) return true;
     }
 }
-module.exports = battleship;
