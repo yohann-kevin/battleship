@@ -69,18 +69,24 @@ var battleship = {
             for(var j = 0; j < this.nbColumn; j++) {
                 content += "<td class='caseBattleship'>";
                 if(this.grid[i][j] === 0) {
-                    content += "<button class='fire' onclick=''>Fire</button>";
+                    content += "<button class='fire' onclick='play("+i+","+j+")'>Fire</button>";
                 }
                 if(this.grid[i][j] === 1) {
-                    content += "<button class='fire' onclick=''>Fire</button>";
+                    content += "<button class='fire' onclick='play("+i+","+j+")'>Fire</button>";
                     content += "<img src='./images/J1.png' class='imgPlayers1'>";
                 }
                 if(this.grid[i][j] === 2) {
-                    content += "<button class='fire' onclick=''>Fire</button>";
+                    content += "<button class='fire' onclick='play("+i+","+j+")'>Fire</button>";
                     content += "<img src='./images/J2.png' class='imgPlayers2'>";
                 }
                 if(this.grid[i][j] === 3) {
                     content += "<img src='./images/croix.png' class='imgLoose'>";
+                }
+                if(this.grid[i][j] === 4) {
+                    content += "<img src='./images/croix.png' class='imgPlayers1'>";
+                }
+                if(this.grid[i][j] === 5) {
+                    content += "<img src='./images/croix.png' class='imgPlayers2'>";
                 }
                 content += "</td>";
             }
@@ -92,9 +98,17 @@ var battleship = {
     },
 
     playCase : function(line,column){
-        if(this.grid[line][column] === 1) this.nbCaseJ1--;
-        if(this.grid[line][column] === 2) this.nbCaseJ2--;
-        this.grid[line][column] = 3;
+        if(this.grid[line][column] === 0) {
+            this.grid[line][column] = 3;
+        }
+        if(this.grid[line][column] === 1) {
+            this.nbCaseJ1--;
+            this.grid[line][column] = 4;
+        }
+        if(this.grid[line][column] === 2) {
+            this.nbCaseJ2--;
+            this.grid[line][column] = 5;
+        }
         if(this.nbCaseJ1 <= 0 || this.nbCaseJ2 <= 0) return true;
     }
 }
