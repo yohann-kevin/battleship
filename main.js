@@ -47,7 +47,7 @@ function initTab(numberBoat) {
 function manageEndGame(){
     endGame = true;
     var contentAlert = "<p id='msg'>Partie terminé le gagnant est : J" + playerTurn + "</p>";
-    contentAlert += "<button type='button' class='btnBattleship' onclick='initTab()'>Restart</button>";
+    contentAlert += "<button type='button' class='btnBattleship' onclick='initTab("+writeNumberBoat+")'>Restart</button>";
     displayAlert(contentAlert,1);
     if(playerTurn===1){
         scoreJ1++;
