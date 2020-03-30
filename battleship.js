@@ -23,9 +23,19 @@ var battleship = {
         var boat = {};
         var positionFinish = false;
         while(!positionFinish){
-            var xRandom = Math.floor(Math.random() * (this.nbLine-(size-1)));
-            var yRandom = Math.floor(Math.random() * (this.nbColumn-(size-1)));
             var isHorizontal = Math.floor(Math.random() * 2);
+            var sizeMaxX = 0;
+            var sizeMaxY = 0;
+            if(isHorizontal) {
+                sizeMaxX = this.nbLine -(size-1);
+                sizeMaxY = this.nbColumn;
+            } else {
+                sizeMaxX = this.nbLine;
+                sizeMaxY = this.nbColumn -(size-1);
+            }
+            var xRandom = Math.floor(Math.random() * sizeMaxX);
+            var yRandom = Math.floor(Math.random() * sizeMaxY);
+            
             var isCaseEmpty = true;
             for(var i =1 ; i <= size && isCaseEmpty; i++){
                 boat["case"+i] = this.getCaseCreateBoat(xRandom, yRandom, isHorizontal, i);
