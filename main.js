@@ -80,3 +80,34 @@ function startBattleship() {
     if(writeNumberBoat > 4) displayAlert("le nombre de bateau doit être inférieur à 5",2);
     if(writeNumberBoat >= 2 && writeNumberBoat <= 4) initTab(writeNumberBoat);
 }
+
+addEventListener("click", function(event) {
+    var target = event.target;
+    if(target.id === "fire") {
+        var image = "<img src='./images/explo/explosion00.png' id='explo' style='width:100px;height:100px;position:absolute;top:"+(event.clientY-50)+"px;left:"+(event.clientX-50)+"px;'/>";
+        var body = document.querySelector("body");
+        var element = document.createElement("div");
+        element.innerHTML = image;
+        body.appendChild(element);
+
+        explosion(8);
+
+        function explosion(time) {
+            var explo = document.getElementById("explo");
+            if(time >= 1) {
+                if(time===9) explo.setAttribute("src","./images/explo/explosion01.png");
+                if(time===8) explo.setAttribute("src","./images/explo/explosion02.png");
+                if(time===7) explo.setAttribute("src","./images/explo/explosion03.png");
+                if(time===6) explo.setAttribute("src","./images/explo/explosion04.png");
+                if(time===5) explo.setAttribute("src","./images/explo/explosion05.png");
+                if(time===4) explo.setAttribute("src","./images/explo/explosion06.png");
+                if(time===3) explo.setAttribute("src","./images/explo/explosion07.png");
+                if(time===2) explo.setAttribute("src","./images/explo/explosion08.png");
+                if(time===1) explo.remove(this);
+                setTimeout(function() {
+                    explosion(time-1);
+                },55); 
+            }
+        }
+    }
+})
