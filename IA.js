@@ -1,10 +1,12 @@
 var iaBattleship = {
+    // recupere une case
     getCase : function() {
         var casePossibility = this.getAllCasePossibility(); 
         var box = this.getBestCase(casePossibility);
         return box;
     },
 
+    // recupere toute les possibilité de case a jouer
     getAllCasePossibility : function() {
         var caseEmpty = [];
         for(var i = 0; i < battleship.nbLine;i++) {
@@ -22,6 +24,7 @@ var iaBattleship = {
         return caseEmpty;
     },
 
+    // recupere le poid de chaque case
     getCaseWeight : function(line,column) {
         var caseWeight = 1;
         if((column+1 < battleship.nbColumn) && battleship.grid[line][column+1] === 4) caseWeight++;
@@ -31,6 +34,7 @@ var iaBattleship = {
         return caseWeight;
     },
 
+    // recupere les meilleurs case a jouer
     getBestCase : function(box) {
         var bestCase = 0;
         var bestBox = [0];

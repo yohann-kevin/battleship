@@ -10,6 +10,7 @@ var endGame = false;
 var scoreJ1 = 0;
 var scoreJ2 = 0;
 
+// permet de jouer une case
 function playCase(line,column) { 
     if(!endGame) {
         battleship.playCase(line,column);
@@ -27,6 +28,7 @@ function playCase(line,column) {
     }   
 }
 
+// initialise un tableau
 function initTab(numberBoat) {
     battleship.nbCaseJ1 = 0;
     battleship.nbCaseJ2 = 0;
@@ -44,6 +46,7 @@ function initTab(numberBoat) {
     battleship.displayGrid();
 }
 
+// gere la fin du jeux
 function manageEndGame(){
     endGame = true;
     var contentAlert = "<p id='msg'>Partie terminé le gagnant est : J" + playerTurn + "</p>";
@@ -56,6 +59,7 @@ function manageEndGame(){
     }
 }
 
+// affiche une alerte
 function displayAlert(txt, type) {
     if(type === 1) {
         alert.classList.add("success");
@@ -68,12 +72,14 @@ function displayAlert(txt, type) {
     alert.style.display = "block";
 }
 
+// permet de jouer
 function play(line,column) {
     playCase(line,column);
     var caseIA = iaBattleship.getCase();
     playCase(caseIA.line,caseIA.column);
 }
 
+// permet de de selectionner le nombre de bateaux voulu et de démarrer le jeux
 function startBattleship() {
     writeNumberBoat = parseInt(document.getElementById('numberBoat').value);
     if(writeNumberBoat < 2) displayAlert("le nombre de bateau doit être supérieur à 1",2);
@@ -81,6 +87,7 @@ function startBattleship() {
     if(writeNumberBoat >= 2 && writeNumberBoat <= 4) initTab(writeNumberBoat);
 }
 
+// lance une animation d'explosion au click sur la target
 addEventListener("click", function(event) {
     var target = event.target;
     if(target.id === "fire") {
@@ -91,7 +98,7 @@ addEventListener("click", function(event) {
         body.appendChild(element);
 
         explosion(8);
-
+        // animation d'xplosion
         function explosion(time) {
             var explo = document.getElementById("explo");
             if(time >= 1) {
