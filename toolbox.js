@@ -1,19 +1,5 @@
 var toolbox = {
-
-    writeString: function(txt){
-        return readline.question(txt);
-    },
-
-    writeInt : function(txt){
-        return parseInt(this.writeString(txt));
-    },
-
-    /**
-     * Permet d'initialiser un tableau de tableau en fonction d'un nombre de ligne et de colonne passé en paramètre
-     * @param {Number} nbLine 
-     * @param {Number} nbColumn 
-     * @param {*} car 
-     */
+    //Permet d'initialiser un tableau de tableau en fonction d'un nombre de ligne et de colonne passé en paramètre
     initTabEmpty : function(nbLine, nbColumn, car = ''){
         var tab = [];
         for(var i=0;i < nbLine;i++){
