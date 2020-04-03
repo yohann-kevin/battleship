@@ -85,24 +85,13 @@ var battleship = {
             content += "<tr>";
             for(var j = 0; j < this.nbColumn; j++) {
                 content += "<td class='caseBattleship'>";
-                if(this.grid[i][j] === 0) {
-                    content += "<button class='fire' id='fire' onclick='play("+i+","+j+")'>Fire</button>";
-                }
-                if(this.grid[i][j] === 1) {
-                    content += "<img src='./images/J1.png' class='imgPlayers1'>";
-                }
-                if(this.grid[i][j] === 2) {
-                    content += "<button class='fire' id='fire' onclick='play("+i+","+j+")'>Fire</button>";
-                }
-                if(this.grid[i][j] === 3) {
-                    content += "<img src='./images/croix.png' class='imgLoose'>";
-                }
-                if(this.grid[i][j] === 4) {
-                    content += "<img src='./images/croix.png' class='imgPlayers1'>";
-                }
-                if(this.grid[i][j] === 5) {
-                    content += "<img src='./images/croix.png' class='imgPlayers2'>";
-                }
+                var btnFire = "<button class='fire' id='fire' onclick='play("+i+","+j+")'>Fire</button>"
+                if(this.grid[i][j] === 0) content += btnFire;    
+                if(this.grid[i][j] === 1) content += "<img src='./images/J1.png' class='imgPlayers1'>";           
+                if(this.grid[i][j] === 2) content += btnFire;              
+                if(this.grid[i][j] === 3) content += "<img src='./images/croix.png' class='imgLoose'>";           
+                if(this.grid[i][j] === 4) content += "<img src='./images/croix.png' class='imgPlayers1'>";        
+                if(this.grid[i][j] === 5) content += "<img src='./images/croix.png' class='imgPlayers2'>";
                 content += "</td>";
             }
             content += "</tr>";
